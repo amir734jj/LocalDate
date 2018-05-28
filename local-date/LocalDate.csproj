@@ -4,6 +4,6 @@
     <RootNamespace>LocalDate</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Folder Include="Models" />
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
   </ItemGroup>
 </Project>

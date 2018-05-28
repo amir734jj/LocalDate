@@ -1,68 +1,16 @@
-﻿using LocalDate.Enums;
-using System;
+﻿using System;
 using LocalDate.Interfaces;
 using LocalDate.Utilities;
-using System.ComponentModel.DataAnnotations;
 using LocalDate.Extensions;
+using LocalDate.Models;
 
 namespace LocalDate
 {
-    public class LocalDate: ILocalDateStruct, ILocalDate
+    public class LocalDate: LocalDateStruct, ILocalDate
     {
-        [Range(0, int.MaxValue)]
-        public int Year { get; }
-
-        [Range(1, 12)]
-        public int Month { get; }
-
-        [Range(1, 28)]
-        public int Day { get; }
-
-        public LocalDate(int year, int month, int day)
+        public LocalDate(int year, int month, int day) : base(year, month, day)
         {
-            // Validate Date properties
             ValidateLocalDate(year, month, day);
-            Year = year;
-            Month = month;
-            Day = day;
-        }
-
-        /// <summary>
-        /// ToString override
-        /// </summary>
-        /// <returns></returns>
-        public override string ToString()
-        {
-            return $"{Enum.GetName(typeof(MonthEnum), Month)} {Day}, {Year}";
-        }
-
-        /// <summary>
-        /// Equality check implementation
-        /// </summary>
-        /// <param name="obj"></param>
-        /// <returns></returns>
-        public override bool Equals(object obj)
-        {
-            if (!(obj is ILocalDateStruct localDateStruct))
-            {
-                return false;
-            }
-
-            return Day == localDateStruct.Day && Month == localDateStruct.Month && Year == localDateStruct.Year;
-        }
-
-        /// <summary>
-        /// HashCode implementation
-        /// </summary>
-        /// <returns></returns>
-        public override int GetHashCode()
-        {
-            const int prime = 31;
-            var result = 1;
-            result = prime * result + Year * 1000;
-            result = prime * result + Month * 100;
-            result = prime * result + Day * 1;
-            return result;
         }
 
         public static LocalDate operator +(LocalDate c1, LocalDate c2)

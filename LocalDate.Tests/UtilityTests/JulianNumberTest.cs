@@ -22,7 +22,7 @@ namespace LocalDate.Tests.UtilityTests
             (int year, int month, int day) = (2010, 1, 2);
             
             // Act
-            var number = JulianNumberUtility.GregorianDate((decimal)2455198.5);
+            var number = JulianNumberUtility.GregorianDate(2455199);
 
             // Assert
             Assert.Equal((year, month, day), number);

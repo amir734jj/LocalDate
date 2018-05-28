@@ -1,4 +1,8 @@
-﻿namespace LocalDate.Interfaces
+﻿using LocalDate.Serializers;
+using Newtonsoft.Json;
+using System.ComponentModel.DataAnnotations;
+
+namespace LocalDate.Interfaces
 {
     /// <summary>
     /// Basic properties of a LocalDate type

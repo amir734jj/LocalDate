@@ -12,7 +12,7 @@ namespace LocalDate.Tests.UtilityTests
             var number = JulianNumberUtility.JulianNumber(2010, 1, 2);
 
             // Assert
-            Assert.Equal((decimal) 2455198.5, number);
+            Assert.Equal((decimal) 2455199, number);
         }
         
         [Fact]

@@ -5881,8 +5881,7 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Amir-Acer\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback": {},
+    "C:\\Users\\Amir-Asus\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
@@ -5891,17 +5890,15 @@
       "projectUniqueName": "C:\\workspace\\LocalDate\\LocalDate.Tests\\LocalDate.Tests.csproj",
       "projectName": "LocalDate.Tests",
       "projectPath": "C:\\workspace\\LocalDate\\LocalDate.Tests\\LocalDate.Tests.csproj",
-      "packagesPath": "C:\\Users\\Amir-Acer\\.nuget\\packages\\",
+      "packagesPath": "C:\\Users\\Amir-Asus\\.nuget\\packages\\",
       "outputPath": "C:\\workspace\\LocalDate\\LocalDate.Tests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Amir-Acer\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.Fallback.config"
+        "C:\\Users\\Amir-Asus\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.0"
@@ -5937,7 +5934,6 @@
             "version": "[15.6.0, )"
           },
           "Microsoft.NETCore.App": {
-            "suppressParent": "All",
             "target": "Package",
             "version": "[2.0.0, )",
             "autoReferenced": true

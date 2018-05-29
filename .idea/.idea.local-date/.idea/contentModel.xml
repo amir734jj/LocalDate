@@ -15,6 +15,7 @@
           <e p="MonthEnum.cs" t="Include" />
         </e>
         <e p="Extensions" t="Include">
+          <e p="DateTimeExtension.cs" t="Include" />
           <e p="DoubleExtension.cs" t="Include" />
           <e p="IntegerExtension.cs" t="Include" />
           <e p="LinqExtension.cs" t="Include" />

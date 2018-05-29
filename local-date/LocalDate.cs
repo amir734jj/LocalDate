@@ -8,9 +8,24 @@ namespace LocalDate
 {
     public class LocalDate: LocalDateStruct, ILocalDate
     {
+        /// <summary>
+        /// Constructor that takes: year, month and day
+        /// </summary>
+        /// <param name="year"></param>
+        /// <param name="month"></param>
+        /// <param name="day"></param>
         public LocalDate(int year, int month, int day) : base(year, month, day)
         {
             ValidateLocalDate(year, month, day);
+        }
+
+        /// <summary>
+        /// Constructor that takes a DateTime
+        /// </summary>
+        /// <param name="dateTime"></param>
+        public LocalDate(DateTime dateTime): this(dateTime.Year, dateTime.Month, dateTime.Day)
+        {
+
         }
 
         /// <summary>
@@ -34,7 +49,7 @@ namespace LocalDate
         /// </summary>
         /// <param name="days"></param>
         /// <returns></returns>
-        public ILocalDate SubtractDays(int days) => (this.ToJulianNumber() - days).ToGregorian();
+        public ILocalDate SubtractDays(int days) => (this.ToJulianNumber() - days + 1).ToGregorian();
 
         /// <summary>
         /// Subtract given months from LocalDate
@@ -77,6 +92,12 @@ namespace LocalDate
         /// <param name="years"></param>
         /// <returns></returns>
         public ILocalDate AddYears(int years) => new LocalDate(Year + years, Month, Day);
+
+        /// <summary>
+        /// Explicit cast from DateTime to LocalDate
+        /// </summary>
+        /// <param name="dateTime"></param>
+        public static explicit operator LocalDate(DateTime dateTime) => new LocalDate(dateTime);
 
         /// <summary>
         /// Validate date properties are in correct range, roughly

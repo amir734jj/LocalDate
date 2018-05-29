@@ -23,8 +23,6 @@ namespace LocalDate.Tests.OperationTests
         public void Test__AddDaysComplex()
         {
             // Arrange
-            var s = DateTime.Parse("January 1, 2010");
-            s = s.AddDays(136);
             var localDate = new LocalDate(2010, 1, 2);
             var expected = new LocalDate(2010, 5, 17);
 

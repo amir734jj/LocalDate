@@ -1,7 +1,7 @@
 ﻿using System;
 using LocalDate.Interfaces;
-using LocalDate.Utilities;
 using LocalDate.Extensions;
+using LocalDate.Extensions.LocalDateExtensions;
 using LocalDate.Models;
 
 namespace LocalDate
@@ -13,27 +13,45 @@ namespace LocalDate
             ValidateLocalDate(year, month, day);
         }
 
-        public static LocalDate operator +(LocalDate c1, LocalDate c2)
-        {
-            return Constants.LocalDateConstants.ZeroLocalDate;
-        }
+        /// <summary>
+        /// Adds two LocalDate together
+        /// </summary>
+        /// <param name="localDate1"></param>
+        /// <param name="localDate2"></param>
+        /// <returns></returns>
+        public static LocalDate operator +(LocalDate localDate1, LocalDate localDate2) => (localDate1.ToJulianNumber() + localDate2.ToJulianNumber()).ToGregorian();
 
-        public ILocalDate SubtractDays(int days)
-        {
-            var julianNumber = JulianNumberUtility.JulianNumber(Year, Month, Day);
-            julianNumber -= days;
+        /// <summary>
+        /// Subtracts two LocalDate together
+        /// </summary>
+        /// <param name="localDate1"></param>
+        /// <param name="localDate2"></param>
+        /// <returns></returns>
+        public static LocalDate operator -(LocalDate localDate1, LocalDate localDate2) => (localDate1.ToJulianNumber() - localDate2.ToJulianNumber()).ToGregorian();
 
-            int year, month;
-            (year, month, days) = JulianNumberUtility.GregorianDate(julianNumber);
-            return new LocalDate(year, month, days);
-        }
+        /// <summary>
+        /// Subtract given days from LocalDate
+        /// </summary>
+        /// <param name="days"></param>
+        /// <returns></returns>
+        public ILocalDate SubtractDays(int days) => (this.ToJulianNumber() - days).ToGregorian();
 
+        /// <summary>
+        /// Subtract given months from LocalDate
+        /// </summary>
+        /// <param name="months"></param>
+        /// <returns></returns>
         public ILocalDate SubtractMonths(int months)
         {
             var temp = Month - months;
             return temp < 0 ? new LocalDate(Year, temp.ModPositive(12), Day).SubtractYears((int) Math.Floor(temp / 12.0) * -1) : new LocalDate(Year, temp, Day);
         }
 
+        /// <summary>
+        /// Subtract given years from LocalDate
+        /// </summary>
+        /// <param name="years"></param>
+        /// <returns></returns>
         public ILocalDate SubtractYears(int years) => new LocalDate(Year - years, Month, Day);
 
         /// <summary>
@@ -41,18 +59,9 @@ namespace LocalDate
         /// </summary>
         /// <param name="days"></param>
         /// <returns></returns>
-        public ILocalDate AddDays(int days)
-        {
-            var julianNumber = JulianNumberUtility.JulianNumber(Year, Month, Day);
-            julianNumber += days;
-
-            int year, month;
-            (year, month, days) = JulianNumberUtility.GregorianDate(julianNumber);
-            return new LocalDate(year, month, days);
-        }
-
+        public ILocalDate AddDays(int days) => (this.ToJulianNumber() + days - 1).ToGregorian();
         /// <summary>
-        /// Adds given month to LocalDate
+        /// Adds given months to LocalDate
         /// </summary>
         /// <param name="months"></param>
         /// <returns></returns>
@@ -63,7 +72,7 @@ namespace LocalDate
         }
 
         /// <summary>
-        /// Adds given year to LocalYear
+        /// Adds given years to LocalYear
         /// </summary>
         /// <param name="years"></param>
         /// <returns></returns>

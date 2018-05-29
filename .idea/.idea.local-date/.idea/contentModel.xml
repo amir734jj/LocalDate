@@ -21,6 +21,7 @@
           <e p="LocalDateExtensions" t="Include">
             <e p="LocalDateExportExtension.cs" t="Include" />
             <e p="LocalDateFormatterExtension.cs" t="Include" />
+            <e p="LocalDateJulianGregorianExtension.cs" t="Include" />
           </e>
           <e p="StringExtension.cs" t="Include" />
         </e>

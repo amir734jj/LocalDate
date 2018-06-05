@@ -1,7 +1,6 @@
 ﻿namespace LocalDate.Serializers
 {
-    public class LocalDateBsonConverter
-    {
+    public class LocalDateBsonConverter { 
         
     }
 }

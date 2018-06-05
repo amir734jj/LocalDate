@@ -10,7 +10,7 @@ namespace LocalDate.Tests.OperationTests
         {
             // Arrange
             var localDate = new LocalDate(2010, 1, 27);
-            var expected = new LocalDate(2010, 6, 2);
+            var expected = new LocalDate(2010, 1, 2);
 
             // Act
             localDate = localDate.SubtractDays(25) as LocalDate;
@@ -24,7 +24,7 @@ namespace LocalDate.Tests.OperationTests
         {
             // Arrange
             var localDate = new LocalDate(2010, 1, 2);
-            var expected = new LocalDate(2009, 9, 18);
+            var expected = new LocalDate(2009, 8, 19);
 
             // Act
             localDate = localDate.SubtractDays(136) as LocalDate;

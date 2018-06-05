@@ -6,7 +6,7 @@ using LocalDate.Models;
 
 namespace LocalDate
 {
-    public class LocalDate: LocalDateStruct, ILocalDate
+    public class LocalDate : LocalDateStruct, ILocalDate
     {
         /// <summary>
         /// Constructor that takes: year, month and day
@@ -23,7 +23,7 @@ namespace LocalDate
         /// Constructor that takes a DateTime
         /// </summary>
         /// <param name="dateTime"></param>
-        public LocalDate(DateTime dateTime): this(dateTime.Year, dateTime.Month, dateTime.Day)
+        public LocalDate(DateTime dateTime) : this(dateTime.Year, dateTime.Month, dateTime.Day)
         {
 
         }
@@ -49,7 +49,7 @@ namespace LocalDate
         /// </summary>
         /// <param name="days"></param>
         /// <returns></returns>
-        public ILocalDate SubtractDays(int days) => (this.ToJulianNumber() - days + 1).ToGregorian();
+        public ILocalDate SubtractDays(int days) => (this.ToJulianNumber() - days).ToGregorian();
 
         /// <summary>
         /// Subtract given months from LocalDate
@@ -59,7 +59,7 @@ namespace LocalDate
         public ILocalDate SubtractMonths(int months)
         {
             var temp = Month - months;
-            return temp < 0 ? new LocalDate(Year, temp.ModPositive(12), Day).SubtractYears((int) Math.Floor(temp / 12.0) * -1) : new LocalDate(Year, temp, Day);
+            return temp < 0 ? new LocalDate(Year, temp.ModPositive(12), Day).SubtractYears((int)Math.Floor(temp / 12.0) * -1) : new LocalDate(Year, temp, Day);
         }
 
         /// <summary>

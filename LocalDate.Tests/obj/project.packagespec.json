@@ -16,8 +16,8 @@
     "frameworks": {
       "netcoreapp2.0": {
         "projectReferences": {
-          "C:\\workspace\\LocalDate\\local-date\\LocalDate.csproj": {
-            "projectPath": "C:\\workspace\\LocalDate\\local-date\\LocalDate.csproj"
+          "C:\\workspace\\LocalDate\\LocalDate\\LocalDate.csproj": {
+            "projectPath": "C:\\workspace\\LocalDate\\LocalDate\\LocalDate.csproj"
           }
         }
       }

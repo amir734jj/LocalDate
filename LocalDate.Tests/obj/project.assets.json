@@ -5608,8 +5608,8 @@
     },
     "LocalDate/1.0.0": {
       "type": "project",
-      "path": "../local-date/LocalDate.csproj",
-      "msbuildProject": "../local-date/LocalDate.csproj"
+      "path": "../LocalDate/LocalDate.csproj",
+      "msbuildProject": "../LocalDate/LocalDate.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -5624,14 +5624,11 @@
   },
   "packageFolders": {
     "C:\\Users\\Amir-Acer\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\": {},
+    "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
-    "restoreSettings": {
-      "hideWarningsAndErrors": true
-    },
     "restore": {
       "projectUniqueName": "C:\\workspace\\LocalDate\\LocalDate.Tests\\LocalDate.Tests.csproj",
       "projectName": "LocalDate.Tests",
@@ -5640,7 +5637,7 @@
       "outputPath": "C:\\workspace\\LocalDate\\LocalDate.Tests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\",
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
@@ -5658,8 +5655,8 @@
       "frameworks": {
         "netcoreapp2.0": {
           "projectReferences": {
-            "C:\\workspace\\LocalDate\\local-date\\LocalDate.csproj": {
-              "projectPath": "C:\\workspace\\LocalDate\\local-date\\LocalDate.csproj"
+            "C:\\workspace\\LocalDate\\LocalDate\\LocalDate.csproj": {
+              "projectPath": "C:\\workspace\\LocalDate\\LocalDate\\LocalDate.csproj"
             }
           }
         }
@@ -5682,6 +5679,7 @@
             "version": "[15.6.0, )"
           },
           "Microsoft.NETCore.App": {
+            "suppressParent": "All",
             "target": "Package",
             "version": "[2.0.0, )",
             "autoReferenced": true

@@ -703,23 +703,20 @@
   },
   "packageFolders": {
     "C:\\Users\\Amir-Acer\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\": {},
+    "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
-    "restoreSettings": {
-      "hideWarningsAndErrors": true
-    },
     "restore": {
-      "projectUniqueName": "C:\\workspace\\LocalDate\\local-date\\LocalDate.csproj",
+      "projectUniqueName": "C:\\workspace\\LocalDate\\LocalDate\\LocalDate.csproj",
       "projectName": "LocalDate",
-      "projectPath": "C:\\workspace\\LocalDate\\local-date\\LocalDate.csproj",
+      "projectPath": "C:\\workspace\\LocalDate\\LocalDate\\LocalDate.csproj",
       "packagesPath": "C:\\Users\\Amir-Acer\\.nuget\\packages\\",
-      "outputPath": "C:\\workspace\\LocalDate\\local-date\\obj\\",
+      "outputPath": "C:\\workspace\\LocalDate\\LocalDate\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\",
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [

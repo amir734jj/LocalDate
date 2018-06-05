@@ -1,6 +1,4 @@
-using System;
 using Xunit;
-using LocalDate.Extensions;
 using LocalDate.Extensions.LocalDateExtensions;
 
 namespace LocalDate.Tests

@@ -1,4 +1,5 @@
 ﻿using System;
+using LocalDate.Constants;
 using LocalDate.Factories;
 using LocalDate.Interfaces;
 using Newtonsoft.Json;
@@ -27,7 +28,7 @@ namespace LocalDate.Serializers
             // Load JObject from stream
             var jValue = JToken.Load(reader).Value<string>();
 
-            return LocalDateFactory.ParseLocalDate(jValue);
+            return string.IsNullOrEmpty(jValue) ? LocalDateConstants.ZeroLocalDate : LocalDateFactory.ParseLocalDate(jValue);
         }
 
         public override bool CanRead => true;

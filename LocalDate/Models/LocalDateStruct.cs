@@ -5,10 +5,14 @@ using System.ComponentModel.DataAnnotations;
 using System.Text;
 using LocalDate.Enums;
 using LocalDate.Serializers;
+using MongoDB.Bson.Serialization;
+using MongoDB.Bson.Serialization.Attributes;
 using Newtonsoft.Json;
 
 namespace LocalDate.Models
 {
+    [Serializable]
+    [BsonSerializer(typeof(LocalDateBsonConverter))]
     [JsonConverter(typeof(LocalDateJsonConverter))]
     public class LocalDateStruct: ILocalDateStruct
     {

@@ -1,0 +1,12 @@
+.vs
+.vscode
+.idea
+
+local-date/obj
+local-date/bin
+
+LocalDate/obj
+LocalDate/bin
+
+LocalDate.Tests/obj
+LocalDate.Tests/bin

@@ -74,7 +74,7 @@ namespace LocalDate
         /// </summary>
         /// <param name="days"></param>
         /// <returns></returns>
-        public ILocalDate AddDays(int days) => (this.ToJulianNumber() + days - 1).ToGregorian();
+        public ILocalDate AddDays(int days) => (this.ToJulianNumber() + days).ToGregorian();
         /// <summary>
         /// Adds given months to LocalDate
         /// </summary>

@@ -3,7 +3,7 @@
 Date only library, similar to C# native `DateTime` but only `Date` with no time. This library uses Julian Day number for date calulcations.
 
 ## Exmaples:
-```
+```csharp
 // June 1, 2018
 var date = new LocalDate(2018, 6, 1);
 

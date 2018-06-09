@@ -5,6 +5,7 @@ using System.Linq;
 using System.Reflection;
 using AutoFixture;
 using AutoFixture.Kernel;
+using LocalDate.Utilities;
 
 namespace LocalDate.Tests
 {
@@ -19,6 +20,10 @@ namespace LocalDate.Tests
             Fixture = GetFixture();
         }
 
+        /// <summary>
+        /// Creates a fixture from a random predefined list
+        /// </summary>
+        /// <returns></returns>
         private Fixture GetFixture()
         {
             var fixture = new Fixture();
@@ -27,15 +32,17 @@ namespace LocalDate.Tests
                 .ToDictionary(x => x.Name, y => y.GetCustomAttribute<RangeAttribute>())
                 .ToDictionary(x => x.Key, y => (minimum: y.Value.Minimum, maximum: y.Value.Maximum));
 
-
             var list = new List<LocalDate>();
 
             for (var i = 0; i < 100; i++)
             {
-                var day = _random.Next((int) proerties["Day"].maximum, (int) proerties["Day"].maximum);
-                var month = _random.Next((int) proerties["Month"].maximum, (int) proerties["Month"].maximum);
-                var year = _random.Next((int) proerties["Year"].maximum, (int) proerties["Year"].maximum);
+                var day = _random.Next((int) proerties["Day"].minimum, (int) proerties["Day"].maximum);
+                var month = _random.Next((int) proerties["Month"].minimum, (int) proerties["Month"].maximum);
+                var year = _random.Next((int) proerties["Year"].minimum, (int) proerties["Year"].maximum);
 
+                // Fix the day value
+                while (day > YearUtility.NumberOfDaysInMonth(year, month)) day--; 
+                
                 list.Add(new LocalDate(year, month, day));
             }
             

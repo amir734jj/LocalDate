@@ -74,6 +74,5 @@ namespace LocalDate.Tests.OperationTests
             // Assert
             Assert.Equal(expected, localDate);
         }
-
     }
 }

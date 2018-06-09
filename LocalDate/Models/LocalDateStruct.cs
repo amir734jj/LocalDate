@@ -1,19 +1,10 @@
 ﻿using LocalDate.Interfaces;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Text;
 using LocalDate.Enums;
-using LocalDate.Serializers;
-using MongoDB.Bson.Serialization;
-using MongoDB.Bson.Serialization.Attributes;
-using Newtonsoft.Json;
 
 namespace LocalDate.Models
 {
-    [Serializable]
-    [BsonSerializer(typeof(LocalDateBsonConverter))]
-    [JsonConverter(typeof(LocalDateJsonConverter))]
     public class LocalDateStruct: ILocalDateStruct
     {
         [Range(1, 9999)]
@@ -25,6 +16,8 @@ namespace LocalDate.Models
         [Range(1, 31)]
         public int Day { get; }
 
+        protected LocalDateStruct(): this(1, 1, 1) { } 
+        
         protected LocalDateStruct(int year, int month, int day)
         {
             // Validate Date properties

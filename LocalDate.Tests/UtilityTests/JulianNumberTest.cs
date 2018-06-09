@@ -19,7 +19,7 @@ namespace LocalDate.Tests.UtilityTests
         public void Test__GregorianDate()
         {
             // Arrange
-            (int year, int month, int day) = (2010, 1, 2);
+            var (year, month, day) = (2010, 1, 2);
             
             // Act
             var number = JulianNumberUtility.GregorianDate(2455199);
@@ -32,7 +32,7 @@ namespace LocalDate.Tests.UtilityTests
         public void Test__Cycle()
         {
             // Arrange
-            (int expectedYear, int expectedMonth, int expectedDay) = (2010, 1, 2);
+            var (expectedYear, expectedMonth, expectedDay) = (2010, 1, 2);
 
             // Act
             var (year, month, day) = JulianNumberUtility.GregorianDate(JulianNumberUtility.JulianNumber(expectedYear, expectedMonth, expectedDay));

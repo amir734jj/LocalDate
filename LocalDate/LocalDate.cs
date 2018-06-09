@@ -1,13 +1,24 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Reflection;
+using LocalDate.Exceptions;
 using LocalDate.Interfaces;
 using LocalDate.Extensions;
 using LocalDate.Extensions.LocalDateExtensions;
 using LocalDate.Models;
+using Newtonsoft.Json;
+using MongoDB.Bson.Serialization.Attributes;
+using LocalDate.Serializers;
+using LocalDate.Utilities;
 
 namespace LocalDate
 {
+    [Serializable]
+    [BsonSerializer(typeof(LocalDateBsonConverter))]
+    [JsonConverter(typeof(LocalDateJsonConverter))]
     public class LocalDate : LocalDateStruct, ILocalDate
-    {
+    {        
         /// <summary>
         /// Constructor that takes: year, month and day
         /// </summary>
@@ -19,6 +30,7 @@ namespace LocalDate
             ValidateLocalDate(year, month, day);
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Constructor that takes a DateTime
         /// </summary>
@@ -34,7 +46,12 @@ namespace LocalDate
         /// <param name="localDate1"></param>
         /// <param name="localDate2"></param>
         /// <returns></returns>
-        public static LocalDate operator +(LocalDate localDate1, LocalDate localDate2) => (localDate1.ToJulianNumber() + localDate2.ToJulianNumber()).ToGregorian();
+        public static LocalDate operator +(LocalDate localDate1, LocalDate localDate2)
+        {
+            return localDate1.AddDays(localDate2.Day)
+                .AddMonths(localDate2.Month)
+                .AddYears(localDate2.Year) as LocalDate;
+        }
 
         /// <summary>
         /// Subtracts two LocalDate together
@@ -42,7 +59,12 @@ namespace LocalDate
         /// <param name="localDate1"></param>
         /// <param name="localDate2"></param>
         /// <returns></returns>
-        public static LocalDate operator -(LocalDate localDate1, LocalDate localDate2) => (localDate1.ToJulianNumber() - localDate2.ToJulianNumber()).ToGregorian();
+        public static LocalDate operator -(LocalDate localDate1, LocalDate localDate2)
+        {
+            return localDate1.SubtractDays(localDate2.Day)
+                .SubtractMonths(localDate2.Month)
+                .SubtractYears(localDate2.Year) as LocalDate;
+        }
 
         /// <summary>
         /// Subtract given days from LocalDate
@@ -108,9 +130,42 @@ namespace LocalDate
         /// <exception cref="ArgumentException"></exception>
         private static void ValidateLocalDate(int year, int month, int day)
         {
-            if (year < 0 || month < 0 || month > 12 || day < 0 || day > 31)
+            typeof(LocalDateStruct).GetProperties().ToDictionary(x => x.Name, x => x.GetCustomAttribute<RangeAttribute>())
+                .ForEach(x =>
+                {
+                    // ReSharper disable once SwitchStatementMissingSomeCases
+                    switch (x.Key)
+                    {
+                        case "Year":
+                            ValidateAction(x.Value, year);
+                            break;
+                        case "Month":
+                            ValidateAction(x.Value, month);
+                            break;
+                        case "Day":
+                            ValidateAction(x.Value, day);
+                            break;
+                    }
+                });
+
+            // More specific range validation
+            if (day > YearUtility.NumberOfDaysInMonth(year, month))
             {
-                throw new ArgumentException("Invalid date properties: make sure properties are in correct range.");
+                throw new LocalDateRangeException();
+            }
+        }
+        
+        /// <summary>
+        /// Validates an attribute
+        /// </summary>
+        /// <param name="attribute"></param>
+        /// <param name="i"></param>
+        /// <exception cref="ArgumentException"></exception>
+        private static void ValidateAction(ValidationAttribute attribute, int i)
+        {
+            if (!attribute.IsValid(i))
+            {
+                throw new LocalDateRangeException();
             }
         }
     }

@@ -23,6 +23,14 @@ namespace LocalDate.Serializers
             }
         }
 
+        /// <summary>
+        /// Try to parse the LocalDate
+        /// </summary>
+        /// <param name="reader"></param>
+        /// <param name="objectType"></param>
+        /// <param name="existingValue"></param>
+        /// <param name="serializer"></param>
+        /// <returns></returns>
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
         {
             // Load JObject from stream

@@ -27,11 +27,11 @@ namespace LocalDate.Utilities
         ///     November - 30 days
         ///     December - 31 day
         /// </summary>
-        /// <param name="month"></param>
         /// <param name="year"></param>
+        /// <param name="month"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static int NumberOfDaysInMonth(int month, int year)
+        public static int NumberOfDaysInMonth(int year, int month)
         {
             var monthEnum = (MonthEnum) month;
             

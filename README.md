@@ -40,7 +40,7 @@ date = date - date
 ```
 ---------
 ### Serializer and Deserializers
-LocalDate comes with json ([`JSON.NET`](https://github.com/JamesNK/Newtonsoft.Json) library) and bson ([C# `Mongo` driver](https://github.com/mongodb/mongo-csharp-driver)) Serializer/Deserializer out of the box that convert the date to `string` and parse it back from string.
+LocalDate comes with json ([`JSON.NET`](https://github.com/JamesNK/Newtonsoft.Json) library) and bson ([C# `Mongo` driver](https://github.com/mongodb/mongo-csharp-driver)) Serializer/Deserializer out of the box that converts the date to `string` and parse it back from string.
 
 ---------
 ### High level design:

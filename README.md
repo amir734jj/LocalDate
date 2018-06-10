@@ -1,6 +1,8 @@
 # LocalDate
 
-Date only library, similar to C# native `DateTime` but only `Date` with no time. This library uses [Julian Day number](https://en.wikipedia.org/wiki/Julian_day) for date calulcations. This library is intented to be simple to use solution to lack of Date only type in  C#.
+Date only library, similar to C# native `DateTime` but only `Date` with no time. This library uses [Julian Day number](https://en.wikipedia.org/wiki/Julian_day) for date calculations. This library is intended to be simple to use solution to lack of Date only type in  C#.
+
+One of the reasons I wrote this library is because there is really one major Date only library out there and that is NodaTime's library `LocalDate` type but I found it very difficult to use for basic Date representations. I am aware of the similarity of this library with NodaTime's `LocalDate` type. But this library is very basic compared to capabilities of NodaTime. 
 
 ## Exmaples:
 ```csharp
@@ -43,8 +45,8 @@ date = date - date
 LocalDate comes with json ([`JSON.NET`](https://github.com/JamesNK/Newtonsoft.Json) library) and bson ([C# `Mongo` driver](https://github.com/mongodb/mongo-csharp-driver)) Serializer/Deserializer out of the box that converts the date to `string` and parse it back from string.
 
 ---------
-### High level design:
-`LocalDate` extends `LocalDateStruct` which only has three `int` properties, hence if at anytime extra methods are not needs, you can up-cast `LocalDate` to  `LocalDateStruct`.
+### High-level design:
+`LocalDate` extends `LocalDateStruct` which only has three `int` properties, hence if at any time extra methods are not needs, you can up-cast `LocalDate` to  `LocalDateStruct`.
 
 ```csharp
 public interface 

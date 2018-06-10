@@ -39,6 +39,10 @@ data = date + date;
 date = date - date
 ```
 ---------
+### Serializer and Deserializers
+LocalDate comes with json (`JSON.NET` library) and bson (C# `Mongo` driver) Serializer/Deserializer out of the box that convert the date to `string` and parse it back from string.
+
+---------
 ### High level design:
 `LocalDate` extends `LocalDateStruct` which only has three `int` properties, hence if at anytime extra methods are not needs, you can up-cast `LocalDate` to  `LocalDateStruct`.
 

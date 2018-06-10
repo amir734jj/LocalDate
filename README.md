@@ -1,6 +1,6 @@
 # LocalDate
 
-Date only library, similar to C# native `DateTime` but only `Date` with no time. This library uses Julian Day number for date calulcations.
+Date only library, similar to C# native `DateTime` but only `Date` with no time. This library uses [Julian Day number](https://en.wikipedia.org/wiki/Julian_day) for date calulcations.
 
 ## Exmaples:
 ```csharp
@@ -40,7 +40,7 @@ date = date - date
 ```
 ---------
 ### Serializer and Deserializers
-LocalDate comes with json (`JSON.NET` library) and bson (C# `Mongo` driver) Serializer/Deserializer out of the box that convert the date to `string` and parse it back from string.
+LocalDate comes with json ([`JSON.NET`](https://github.com/JamesNK/Newtonsoft.Json) library) and bson ([C# `Mongo` driver](https://github.com/mongodb/mongo-csharp-driver)) Serializer/Deserializer out of the box that convert the date to `string` and parse it back from string.
 
 ---------
 ### High level design:

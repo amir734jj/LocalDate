@@ -4,14 +4,24 @@ Date only library, similar to C# native `DateTime` but only `Date` with no time.
 
 ## Exmaples:
 ```csharp
+LocalDate date, clone;
+DateTime dateTime;
+String str;
+
 // June 1, 2018
-var date = new LocalDate(2018, 6, 1);
+date = new LocalDate(2018, 6, 1);
 
 // "2018-06-01"
-var str = date.ToString("yyyy-MM-dd")
+str = date.ToString("yyyy-MM-dd")
 
 // Parse LocalDate from string
-var clone = LocalDateFactory.ParseLocalDate(str);
+clone = LocalDateFactory.ParseLocalDate(str);
+
+// Convert the LocalDate to C# DateTime type
+dateTime = date.ToDateTime();
+
+// Convert DateTime back to LocalDate (via extension method)
+clone = dateTime.ToLocalDate();
 
 // June 11, 2018
 date = date.AddDays(10);

@@ -1,6 +1,6 @@
 # LocalDate
 
-Date only library, similar to C# native `DateTime` but only `Date` with no time. This library uses [Julian Day number](https://en.wikipedia.org/wiki/Julian_day) for date calulcations.
+Date only library, similar to C# native `DateTime` but only `Date` with no time. This library uses [Julian Day number](https://en.wikipedia.org/wiki/Julian_day) for date calulcations. This library is intented to be simple to use solution to lack of Date only type in  C#.
 
 ## Exmaples:
 ```csharp

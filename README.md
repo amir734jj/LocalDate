@@ -7,6 +7,12 @@ Date only library, similar to C# native `DateTime` but only `Date` with no time.
 // June 1, 2018
 var date = new LocalDate(2018, 6, 1);
 
+// "2018-06-01"
+var str = date.ToString("yyyy-MM-dd")
+
+// Parse LocalDate from string
+var clone = LocalDateFactory.ParseLocalDate(str);
+
 // June 11, 2018
 date = date.AddDays(10);
 

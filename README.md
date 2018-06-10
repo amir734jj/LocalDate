@@ -36,7 +36,7 @@ public interface
     int Day { get; }
 }
 
-```csharp
+// LocalDate extends ILocalDate
 public interface ILocalDate: ILocalDateStruct
 {
    ...

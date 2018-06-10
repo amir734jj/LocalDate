@@ -46,11 +46,11 @@ namespace LocalDate
         /// <param name="localDate1"></param>
         /// <param name="localDate2"></param>
         /// <returns></returns>
-        public static LocalDate operator +(LocalDate localDate1, LocalDate localDate2)
+        public static ILocalDate operator +(LocalDate localDate1, LocalDate localDate2)
         {
             return localDate1.AddDays(localDate2.Day)
                 .AddMonths(localDate2.Month)
-                .AddYears(localDate2.Year) as LocalDate;
+                .AddYears(localDate2.Year);
         }
 
         /// <summary>
@@ -59,11 +59,11 @@ namespace LocalDate
         /// <param name="localDate1"></param>
         /// <param name="localDate2"></param>
         /// <returns></returns>
-        public static LocalDate operator -(LocalDate localDate1, LocalDate localDate2)
+        public static ILocalDate operator -(LocalDate localDate1, LocalDate localDate2)
         {
             return localDate1.SubtractDays(localDate2.Day)
                 .SubtractMonths(localDate2.Month)
-                .SubtractYears(localDate2.Year) as LocalDate;
+                .SubtractYears(localDate2.Year);
         }
 
         /// <summary>

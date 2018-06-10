@@ -70,14 +70,7 @@ namespace LocalDate.Factories
         /// <returns></returns>
         private static IEnumerable<string> GetAppropriatePattern(string localDateStr)
         {
-            if (Regex.IsMatch(localDateStr, @"[a-zA-Z]"))
-            {
-                return LetterPatterns;
-            }
-            else
-            {
-                return NumericPatterns;
-            }
+            return Regex.IsMatch(localDateStr, @"[a-zA-Z]") ? LetterPatterns : NumericPatterns;
         }
     }
 }

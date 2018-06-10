@@ -1,6 +1,6 @@
 ﻿namespace LocalDate.Interfaces
 {
-    public interface ILocalDate
+    public interface ILocalDate: ILocalDateStruct
     {
         ILocalDate AddDays(int days);
         

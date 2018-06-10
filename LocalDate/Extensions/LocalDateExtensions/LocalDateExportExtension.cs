@@ -12,7 +12,7 @@ namespace LocalDate.Extensions.LocalDateExtensions
         public static DateTime ToDateTime(this LocalDate localDate) => DateTime.Parse(localDate.ToString());
         
         /// <summary>
-        /// To integer array
+        /// To integer array [year, month, day]
         /// </summary>
         /// <param name="localDate"></param>
         /// <returns></returns>

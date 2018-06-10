@@ -16,4 +16,29 @@ date = date.AddMonth(10);
 // June 11, 2029
 date = date.AddYears(10);
 
+// Add two LocalDates together
+data = date + date;
+
+// Or Subtract them
+date = date - date
+```
+---------
+### High level design:
+`LocalDate` extends `LocalDateStruct` which only has three `int` properties, hence if at anytime extra methods are not needs, you can up-cast `LocalDate` to  `LocalDateStruct`.
+
+```csharp
+public interface 
+{
+    int Year { get; }
+
+    int Month { get; }
+
+    int Day { get; }
+}
+
+```csharp
+public interface ILocalDate: ILocalDateStruct
+{
+   ...
+}
 ```

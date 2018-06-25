@@ -3,6 +3,7 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
     <IsPackable>false</IsPackable>
     <OutputType>Library</OutputType>
+    <ReleaseVersion>1.1</ReleaseVersion>
   </PropertyGroup>
   <ItemGroup>
     <Compile Remove="SerializerTest\**" />

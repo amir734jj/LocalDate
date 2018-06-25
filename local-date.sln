@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocalDate", "LocalDate\LocalDate.csproj", "{DA90F034-836E-4D9F-9F7C-7BE091C144CB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocalDate", "LocalDate\LocalDate.csproj", "{DA90F034-836E-4D9F-9F7C-7BE091C144CB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocalDate.Tests", "LocalDate.Tests\LocalDate.Tests.csproj", "{4834EF2C-EA4E-4BF7-BC3A-7A04DC503F85}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocalDate.Tests", "LocalDate.Tests\LocalDate.Tests.csproj", "{4834EF2C-EA4E-4BF7-BC3A-7A04DC503F85}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,5 +27,8 @@ Global
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3276F15A-38B6-4506-9C3B-B0112D45FF60}
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		version = 1.1
 	EndGlobalSection
 EndGlobal

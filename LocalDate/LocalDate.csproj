@@ -6,9 +6,14 @@
     <PackageProjectUrl>https://github.com/amir734jj/LocalDate.git</PackageProjectUrl>
     <Title>Date only library, similar to C# native DateTime but only Date with no time. This library uses Julian Day number for date calculations. This library is intended to be simple to use solution to lack of Date only type in C#.</Title>
     <ReleaseVersion>1.1</ReleaseVersion>
+    <Authors>Hesamian</Authors>
+    <Description>Date only library, similar to C# native DateTime but only Date with no time. This library uses Julian Day number for date calculations. This library is intended to be simple to use solution to lack of Date only type in C#.</Description>
+    <PackageVersion>1.1</PackageVersion>
+    <Owners>hesamian</Owners>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="MongoDB.Driver" Version="2.6.1" />
     <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+    <PackageReference Include="NuGet.Build.Packaging" Version="0.2.0" />
   </ItemGroup>
 </Project>

@@ -1,7 +1,4 @@
-﻿using System;
-using LocalDate.Extensions;
-
-namespace LocalDate.Utilities
+﻿namespace LocalDate.Utilities
 {
     public static class JulianNumberUtility
     {
@@ -24,18 +21,16 @@ namespace LocalDate.Utilities
         /// <returns></returns>
         public static (int year, int month, int day) GregorianDate(int julianNumber)
         {
-            int l, n, i, j, d, m, y;
-
-            l = julianNumber + 68569;
-            n = (4 * l) / 146097;
+            var l = julianNumber + 68569;
+            var n = (4 * l) / 146097;
             l = l - (146097 * n + 3) / 4;
-            i = (4000 * (l + 1)) / 1461001;
+            var i = (4000 * (l + 1)) / 1461001;
             l = l - (1461 * i) / 4 + 31;
-            j = (80 * l) / 2447;
-            d = l - (2447 * j) / 80;
+            var j = (80 * l) / 2447;
+            var d = l - (2447 * j) / 80;
             l = j / 11;
-            m = j + 2 - (12 * l);
-            y = 100 * (n - 49) + i + l;
+            var m = j + 2 - (12 * l);
+            var y = 100 * (n - 49) + i + l;
 
             return (y, m, d);
         }

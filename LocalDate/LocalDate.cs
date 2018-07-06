@@ -11,13 +11,14 @@ using Newtonsoft.Json;
 using MongoDB.Bson.Serialization.Attributes;
 using LocalDate.Serializers;
 using LocalDate.Utilities;
+using static LocalDate.Utilities.LocalDateValidation;
 
 namespace LocalDate
 {
     [Serializable]
     [BsonSerializer(typeof(LocalDateBsonConverter))]
     [JsonConverter(typeof(LocalDateJsonConverter))]
-    public class LocalDate : LocalDateStruct, ILocalDate
+    public class LocalDate : LocalDateStruct, ILocalDate, IComparable
     {        
         /// <summary>
         /// Constructor that takes: year, month and day
@@ -41,6 +42,26 @@ namespace LocalDate
         }
 
         /// <summary>
+        /// CompareTo implementation
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        public int CompareTo(object obj)
+        {
+            if (obj == null) throw new NullReferenceException("Cannot compare With Null");
+            
+            if (Equals(this, obj)) return 0;
+            
+            // Object is of type LocalDate
+            if (obj is LocalDate localDate)
+            {
+                return this.ToJulianNumber().CompareTo(localDate.ToJulianNumber());
+            }
+
+            throw new ArgumentException("Cannot compare between two un-related types");
+        }
+        
+        /// <summary>
         /// Adds two LocalDate together
         /// </summary>
         /// <param name="localDate1"></param>
@@ -48,6 +69,9 @@ namespace LocalDate
         /// <returns></returns>
         public static ILocalDate operator +(LocalDate localDate1, LocalDate localDate2)
         {
+            // Validate againt null
+            ValidateNullLocalDates(localDate1, localDate2);
+            
             return localDate1.AddDays(localDate2.Day)
                 .AddMonths(localDate2.Month)
                 .AddYears(localDate2.Year);
@@ -61,9 +85,62 @@ namespace LocalDate
         /// <returns></returns>
         public static ILocalDate operator -(LocalDate localDate1, LocalDate localDate2)
         {
+            // Validate againt null
+            ValidateNullLocalDates(localDate1, localDate2);
+
             return localDate1.SubtractDays(localDate2.Day)
                 .SubtractMonths(localDate2.Month)
                 .SubtractYears(localDate2.Year);
+        }
+        
+        /// <summary>
+        /// Is less than implementation
+        /// </summary>
+        /// <param name="localDate1"></param>
+        /// <param name="localDate2"></param>
+        /// <returns></returns>
+        public static bool operator <(LocalDate localDate1, LocalDate localDate2) 
+        {
+            // Validate againt null
+            ValidateNullLocalDates(localDate1, localDate2);
+
+            return localDate1?.CompareTo(localDate2) < 0;
+        }
+
+        /// <summary>
+        /// Is greater than implementation
+        /// </summary>
+        /// <param name="localDate1"></param>
+        /// <param name="localDate2"></param>
+        /// <returns></returns>
+        public static bool operator >(LocalDate localDate1, LocalDate localDate2) 
+        {
+            // Validate againt null
+            ValidateNullLocalDates(localDate1, localDate2);
+
+            return localDate1.CompareTo(localDate2) > 0;
+        }
+        
+        /// <summary>
+        /// Is greater than implementation
+        /// </summary>
+        /// <param name="localDate1"></param>
+        /// <param name="localDate2"></param>
+        /// <returns></returns>
+        public static bool operator ==(LocalDate localDate1, LocalDate localDate2)
+        {
+            // Validate againt null
+            ValidateNullLocalDates(localDate1, localDate2);
+
+            return localDate1?.CompareTo(localDate2) == 0;
+        }
+
+        public static bool operator !=(LocalDate localDate1, LocalDate localDate2)
+        {
+            // Validate againt null
+            ValidateNullLocalDates(localDate1, localDate2);
+            
+            return localDate1?.CompareTo(localDate2) != 0;
         }
 
         /// <summary>
@@ -137,33 +214,19 @@ namespace LocalDate
                     switch (x.Key)
                     {
                         case "Year":
-                            ValidateAction(x.Value, year);
+                            ValidateRangeAction(x.Value, year);
                             break;
                         case "Month":
-                            ValidateAction(x.Value, month);
+                            ValidateRangeAction(x.Value, month);
                             break;
                         case "Day":
-                            ValidateAction(x.Value, day);
+                            ValidateRangeAction(x.Value, day);
                             break;
                     }
                 });
 
             // More specific range validation
             if (day > YearUtility.NumberOfDaysInMonth(year, month))
-            {
-                throw new LocalDateRangeException();
-            }
-        }
-        
-        /// <summary>
-        /// Validates an attribute
-        /// </summary>
-        /// <param name="attribute"></param>
-        /// <param name="i"></param>
-        /// <exception cref="ArgumentException"></exception>
-        private static void ValidateAction(ValidationAttribute attribute, int i)
-        {
-            if (!attribute.IsValid(i))
             {
                 throw new LocalDateRangeException();
             }

@@ -53,6 +53,7 @@ namespace LocalDate.Factories
                 if (Regex.IsMatch(month, @"^[a-zA-Z]+$"))
                 {
                     month = month.ToUpperCamelCase();
+                    // ReSharper disable once AccessToModifiedClosure
                     month = Enum.GetNames(typeof(MonthEnum)).FirstOrDefault(m => m == month);
                     month = string.IsNullOrEmpty(month) ? "0" : ((int) Enum.Parse(typeof(MonthEnum), month)).ToString();
                 }

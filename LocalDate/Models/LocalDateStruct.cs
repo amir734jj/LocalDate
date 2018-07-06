@@ -16,8 +16,17 @@ namespace LocalDate.Models
         [Range(1, 31)]
         public int Day { get; }
 
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         protected LocalDateStruct(): this(1, 1, 1) { } 
         
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="year"></param>
+        /// <param name="month"></param>
+        /// <param name="day"></param>
         protected LocalDateStruct(int year, int month, int day)
         {
             // Validate Date properties
@@ -42,7 +51,7 @@ namespace LocalDate.Models
         /// <returns></returns>
         public override bool Equals(object obj)
         {
-            if (!(obj is ILocalDateStruct localDateStruct))
+            if (!(obj is LocalDateStruct localDateStruct))
             {
                 return false;
             }

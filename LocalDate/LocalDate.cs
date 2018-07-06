@@ -70,7 +70,7 @@ namespace LocalDate
         public static ILocalDate operator +(LocalDate localDate1, LocalDate localDate2)
         {
             // Validate againt null
-            ValidateNullLocalDates(localDate1, localDate2);
+            ValidateNullLocalDates(new [] { localDate1, localDate2 });
             
             return localDate1.AddDays(localDate2.Day)
                 .AddMonths(localDate2.Month)
@@ -86,7 +86,7 @@ namespace LocalDate
         public static ILocalDate operator -(LocalDate localDate1, LocalDate localDate2)
         {
             // Validate againt null
-            ValidateNullLocalDates(localDate1, localDate2);
+            ValidateNullLocalDates(new [] { localDate1, localDate2 });
 
             return localDate1.SubtractDays(localDate2.Day)
                 .SubtractMonths(localDate2.Month)
@@ -102,7 +102,7 @@ namespace LocalDate
         public static bool operator <(LocalDate localDate1, LocalDate localDate2) 
         {
             // Validate againt null
-            ValidateNullLocalDates(localDate1, localDate2);
+            ValidateNullLocalDates(new [] { localDate1, localDate2 });
 
             return localDate1?.CompareTo(localDate2) < 0;
         }
@@ -116,7 +116,7 @@ namespace LocalDate
         public static bool operator >(LocalDate localDate1, LocalDate localDate2) 
         {
             // Validate againt null
-            ValidateNullLocalDates(localDate1, localDate2);
+            ValidateNullLocalDates(new [] { localDate1, localDate2 });
 
             return localDate1.CompareTo(localDate2) > 0;
         }
@@ -130,7 +130,7 @@ namespace LocalDate
         public static bool operator ==(LocalDate localDate1, LocalDate localDate2)
         {
             // Validate againt null
-            ValidateNullLocalDates(localDate1, localDate2);
+            ValidateNullLocalDates(new [] { localDate1, localDate2 });
 
             return localDate1?.CompareTo(localDate2) == 0;
         }
@@ -138,7 +138,7 @@ namespace LocalDate
         public static bool operator !=(LocalDate localDate1, LocalDate localDate2)
         {
             // Validate againt null
-            ValidateNullLocalDates(localDate1, localDate2);
+            ValidateNullLocalDates(new [] { localDate1, localDate2 });
             
             return localDate1?.CompareTo(localDate2) != 0;
         }

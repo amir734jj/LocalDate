@@ -1,6 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
 using LocalDate.Exceptions;
 using LocalDate.Extensions;
 
@@ -39,7 +39,7 @@ namespace LocalDate.Utilities
         /// </summary>
         /// <param name="localDates"></param>
         /// <returns></returns>
-        public static void ValidateNullLocalDates(params LocalDate[] localDates)
+        public static void ValidateNullLocalDates(IEnumerable<LocalDate> localDates)
         {
             localDates.ForEach(ValidateNullLocalDate);
         }

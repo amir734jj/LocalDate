@@ -10,6 +10,7 @@
     <Description>Date only library, similar to C# native DateTime but only Date with no time. This library uses Julian Day number for date calculations. This library is intended to be simple to use solution to lack of Date only type in C#.</Description>
     <PackageVersion>1.1</PackageVersion>
     <Owners>hesamian</Owners>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="MongoDB.Driver" Version="[2.0.0,)" />

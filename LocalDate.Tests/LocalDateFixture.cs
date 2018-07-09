@@ -4,7 +4,6 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Reflection;
 using AutoFixture;
-using AutoFixture.Kernel;
 using LocalDate.Utilities;
 
 namespace LocalDate.Tests

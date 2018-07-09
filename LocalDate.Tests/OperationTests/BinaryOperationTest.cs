@@ -3,7 +3,7 @@ using AutoFixture;
 
 namespace LocalDate.Tests.OperationTests
 {
-    public class OperationTest: LocalDateFixture
+    public class BinaryOperationTest: LocalDateFixture
     {
         [Fact]
         public void Test__AddLocalDates()

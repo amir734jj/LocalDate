@@ -27,6 +27,28 @@ namespace LocalDate.Tests.OperationTests
         }
         
         [Fact]
+        public void Test__GreaterThanOrEqual()
+        {
+            // Arrange
+            var d1 = new LocalDate(2000, 10, 5);
+            var d2 = new LocalDate(2000, 12, 1);
+
+            // Act, Assert
+            Assert.True(d2 >= d1);
+        }
+        
+        [Fact]
+        public void Test__LessThanOrEqual()
+        {
+            // Arrange
+            var d1 = new LocalDate(2000, 10, 5);
+            var d2 = new LocalDate(2000, 12, 1);
+
+            // Act, Assert
+            Assert.True(d1 <= d2);
+        }
+           
+        [Fact]
         public void Test__Equal()
         {
             // Arrange
@@ -35,6 +57,17 @@ namespace LocalDate.Tests.OperationTests
 
             // Act, Assert
             Assert.True(d2 == d1);
+        }
+        
+        [Fact]
+        public void Test__NotEqual()
+        {
+            // Arrange
+            var d1 = new LocalDate(2000, 10, 5);
+            var d2 = new LocalDate(2000, 12, 1);
+
+            // Act, Assert
+            Assert.True(d1 != d2);
         }
     }
 }

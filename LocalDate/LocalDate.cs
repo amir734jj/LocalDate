@@ -18,7 +18,7 @@ namespace LocalDate
     [Serializable]
     [BsonSerializer(typeof(LocalDateBsonConverter))]
     [JsonConverter(typeof(LocalDateJsonConverter))]
-    public class LocalDate : LocalDateStruct, ILocalDate, IComparable
+    public class LocalDate : LocalDateStruct, ILocalDate, IComparable, IEquatable<LocalDate>
     {        
         /// <summary>
         /// Constructor that takes: year, month and day
@@ -70,7 +70,7 @@ namespace LocalDate
         public static ILocalDate operator +(LocalDate localDate1, LocalDate localDate2)
         {
             // Validate againt null
-            ValidateNullLocalDates(new [] { localDate1, localDate2 });
+            ValidateNullLocalDates(localDate1, localDate2);
             
             return localDate1.AddDays(localDate2.Day)
                 .AddMonths(localDate2.Month)
@@ -86,7 +86,7 @@ namespace LocalDate
         public static ILocalDate operator -(LocalDate localDate1, LocalDate localDate2)
         {
             // Validate againt null
-            ValidateNullLocalDates(new [] { localDate1, localDate2 });
+            ValidateNullLocalDates(localDate1, localDate2);
 
             return localDate1.SubtractDays(localDate2.Day)
                 .SubtractMonths(localDate2.Month)
@@ -102,7 +102,7 @@ namespace LocalDate
         public static bool operator <(LocalDate localDate1, LocalDate localDate2) 
         {
             // Validate againt null
-            ValidateNullLocalDates(new [] { localDate1, localDate2 });
+            ValidateNullLocalDates(localDate1, localDate2);
 
             return localDate1?.CompareTo(localDate2) < 0;
         }
@@ -116,31 +116,69 @@ namespace LocalDate
         public static bool operator >(LocalDate localDate1, LocalDate localDate2) 
         {
             // Validate againt null
-            ValidateNullLocalDates(new [] { localDate1, localDate2 });
+            ValidateNullLocalDates(localDate1, localDate2);
 
             return localDate1.CompareTo(localDate2) > 0;
         }
         
         /// <summary>
-        /// Is greater than implementation
+        /// Is less than or equal to implementation
         /// </summary>
         /// <param name="localDate1"></param>
         /// <param name="localDate2"></param>
         /// <returns></returns>
-        public static bool operator ==(LocalDate localDate1, LocalDate localDate2)
+        public static bool operator <=(LocalDate localDate1, LocalDate localDate2) 
         {
             // Validate againt null
-            ValidateNullLocalDates(new [] { localDate1, localDate2 });
+            ValidateNullLocalDates(localDate1, localDate2);
 
-            return localDate1?.CompareTo(localDate2) == 0;
+            return localDate1?.CompareTo(localDate2) <= 0;
         }
 
-        public static bool operator !=(LocalDate localDate1, LocalDate localDate2)
+        /// <summary>
+        /// Is greater than or equal to implementation
+        /// </summary>
+        /// <param name="localDate1"></param>
+        /// <param name="localDate2"></param>
+        /// <returns></returns>
+        public static bool operator >=(LocalDate localDate1, LocalDate localDate2) 
         {
             // Validate againt null
-            ValidateNullLocalDates(new [] { localDate1, localDate2 });
+            ValidateNullLocalDates(localDate1, localDate2);
+
+            return localDate1.CompareTo(localDate2) >= 0;
+        }
+        
+        /// <summary>
+        /// Double equals operator implementation
+        /// </summary>
+        /// <param name="localDate1"></param>
+        /// <param name="localDate2"></param>
+        /// <returns></returns>
+        public static bool operator ==(LocalDate localDate1, LocalDate localDate2) 
+        {
+            if (ReferenceEquals(localDate1, localDate2))
+            {
+                return true;
+            }
+
+            if (ReferenceEquals(localDate1, null))
+            {
+                return false;
+            }
             
-            return localDate1?.CompareTo(localDate2) != 0;
+            return !ReferenceEquals(localDate2, null) && Equals(localDate1, localDate2);
+        }
+
+        /// <summary>
+        /// Not equals operator implementation
+        /// </summary>
+        /// <param name="localDate1"></param>
+        /// <param name="localDate2"></param>
+        /// <returns></returns>
+        public static bool operator !=(LocalDate localDate1, LocalDate localDate2)
+        {
+            return !(localDate1 == localDate2);
         }
 
         /// <summary>
@@ -231,5 +269,20 @@ namespace LocalDate
                 throw new LocalDateRangeException();
             }
         }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Equals using base implementation
+        /// </summary>
+        /// <param name="other"></param>
+        /// <returns></returns>
+        public bool Equals(LocalDate other) => base.Equals(other);
+        
+        /// <inheritdoc />
+        /// <summary>
+        /// GetHashCode using base implementation
+        /// </summary>
+        /// <returns></returns>
+        public override int GetHashCode() => base.GetHashCode();
     }
 }

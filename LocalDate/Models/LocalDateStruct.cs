@@ -51,6 +51,16 @@ namespace LocalDate.Models
         /// <returns></returns>
         public override bool Equals(object obj)
         {
+            if (ReferenceEquals(null, obj))
+            {
+                return false;
+            }
+            
+            if (ReferenceEquals(this, obj))
+            {
+                return true;
+            }
+            
             if (!(obj is LocalDateStruct localDateStruct))
             {
                 return false;

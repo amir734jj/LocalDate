@@ -39,7 +39,7 @@ namespace LocalDate.Utilities
         /// </summary>
         /// <param name="localDates"></param>
         /// <returns></returns>
-        public static void ValidateNullLocalDates(IEnumerable<LocalDate> localDates)
+        public static void ValidateNullLocalDates(params LocalDate[] localDates)
         {
             localDates.ForEach(ValidateNullLocalDate);
         }

@@ -4,7 +4,7 @@ Date only library, similar to C# native `DateTime` but only `Date` with no time.
 
 One of the reasons I wrote this library is because there is really one major Date only library out there and that is [NodaTime's library `LocalDate` type](https://nodatime.org/2.2.x/api/NodaTime.LocalDate.html) but I found it very difficult to use for basic Date representations. I am aware of the name similarity of this library with NodaTime's `LocalDate` type. But this library is very basic compared to capabilities of NodaTime. 
 
-[Nuget download](https://www.nuget.org/packages/LocalDate/1.0.0)
+[Nuget download](https://www.nuget.org/packages/LocalDate/)
 
 ## Exmaples:
 ```csharp

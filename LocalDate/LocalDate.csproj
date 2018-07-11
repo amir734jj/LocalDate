@@ -11,6 +11,9 @@
     <PackageVersion>1.1</PackageVersion>
     <Owners>hesamian</Owners>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <ApplicationIcon />
+    <OutputType>Library</OutputType>
+    <StartupObject />
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="MongoDB.Driver" Version="[2.0.0,)" />
